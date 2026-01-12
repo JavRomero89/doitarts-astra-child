@@ -1,5 +1,8 @@
 .vscode/sftp.json
-node_modules
-dist
-build
+
+# dependencies
+**/node_modules
+
+# OS
 .DS_Store
+
