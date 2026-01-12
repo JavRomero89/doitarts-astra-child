@@ -2,8 +2,7 @@ name: Deploy theme to IONOS
 
 on:
   push:
-    branches:
-      - main
+    branches: [ "main" ]
 
 jobs:
   deploy:
@@ -12,13 +11,22 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Upload theme via SFTP
-        uses: appleboy/scp-action@v0.1.7
-        with:
-          host: ${{ secrets.SFTP_HOST }}
-          username: ${{ secrets.SFTP_USER }}
-          password: ${{ secrets.SFTP_PASS }}
-          port: ${{ secrets.SFTP_PORT }}
-          source: "./*"
-          target: ${{ secrets.SFTP_REMOTE_PATH }}
-          overwrite: true
+      - name: Install lftp
+        run: sudo apt-get update && sudo apt-get install -y lftp
+
+      - name: Deploy via SFTP (lftp mirror)
+        env:
+          HOST: ${{ secrets.SFTP_HOST }}
+          USER: ${{ secrets.SFTP_USER }}
+          PASS: ${{ secrets.SFTP_PASS }}
+          PORT: ${{ secrets.SFTP_PORT }}
+          REMOTE: ${{ secrets.SFTP_REMOTE_PATH }}
+        run: |
+          lftp -e "
+          set sftp:auto-confirm yes;
+          set sftp:connect-program 'ssh -a -x -p ${PORT}';
+          open -u ${USER},${PASS} sftp://${HOST};
+          mirror -R --delete --verbose \--exclude-glob .git/ \--exclude-glob .github/ \--exclude-glob .vscode/ \--exclude-glob node_modules/ \./ ${REMOTE};
+
+          bye
+          "
