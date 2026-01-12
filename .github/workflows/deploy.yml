@@ -22,9 +22,10 @@ jobs:
           PORT: ${{ secrets.SFTP_PORT }}
           REMOTE: ${{ secrets.SFTP_REMOTE_PATH }}
         run: |
-          lftp -e "
+          lftp -c "
           set sftp:auto-confirm yes;
           set sftp:connect-program 'ssh -a -x -p ${PORT}';
           open -u ${USER},${PASS} sftp://${HOST};
-          mirror -R --delete --verbose --exclude-glob .git/ --exclude-glob .github/ --exclude-glob .vscode/ --exclude-glob node_modules/ ./ ${REMOTE};
+          mirror -R --delete --verbose --exclude-glob .git/ --exclude-glob .github/ --exclude-glob .vscode/ --exclude-glob node_modules/ . ${REMOTE};
+          quit
           "
