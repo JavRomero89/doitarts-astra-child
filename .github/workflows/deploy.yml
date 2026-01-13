@@ -27,4 +27,4 @@ jobs:
           set sftp:connect-program 'ssh -a -x -p ${PORT}';
           open -u ${USER},${PASS} sftp://${HOST};
           mirror -R --delete --verbose --exclude-glob .git/ --exclude-glob .github/ --exclude-glob .vscode/ --exclude-glob node_modules/ --exclude-glob assets/src/ --exclude-glob assets/public/ --exclude-glob assets/index.html --exclude-glob assets/package*.json --exclude-glob assets/vite.config.js --exclude-glob assets/eslint.config.js --exclude-glob *.md . ${REMOTE};
-          "
+
