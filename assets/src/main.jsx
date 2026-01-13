@@ -1,9 +1,12 @@
-import React from "react";
-import { createRoot } from "react-dom/client";
+import React from 'react'
+import ReactDOM from 'react-dom/client'
+import ProductCustomizer from './ProductCustomizer.jsx'
 
-function App() {
-  return <div>Doitarts React OK</div>;
+const el = document.getElementById('doitarts-react-root')
+if (el) {
+  ReactDOM.createRoot(el).render(
+    <React.StrictMode>
+      <ProductCustomizer config={window.DOITARTS || {}} />
+    </React.StrictMode>
+  )
 }
-
-const el = document.getElementById("doitarts-react-root");
-if (el) createRoot(el).render(<App />);
