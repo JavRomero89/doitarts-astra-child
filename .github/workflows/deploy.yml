@@ -14,7 +14,7 @@ jobs:
       - name: Install lftp
         run: sudo apt-get update && sudo apt-get install -y lftp
 
-      - name: Deploy via SFTP (lftp mirror)
+      - name: Deploy via SFTP (lftp clean + dist only)
         env:
           HOST: ${{ secrets.SFTP_HOST }}
           USER: ${{ secrets.SFTP_USER }}
@@ -22,5 +22,6 @@ jobs:
           PORT: ${{ secrets.SFTP_PORT }}
           REMOTE: ${{ secrets.SFTP_REMOTE_PATH }}
         run: |
-          lftp -c "set sftp:auto-confirm yes; set sftp:connect-program 'ssh -a -x -p ${PORT}'; open -u ${USER},${PASS} sftp://${HOST}; lcd assets; mirror -R --delete --verbose dist ${REMOTE}assets/dist; quit"
+          lftp -c "set sftp:auto-confirm yes; set sftp:connect-program 'ssh -a -x -p ${PORT}'; open -u ${USER},${PASS} sftp://${HOST}; rm -r -f ${REMOTE}assets; mkdir -p ${REMOTE}assets/dist; lcd assets; mirror -R --delete --verbose dist ${REMOTE}assets/dist; quit"
+
 
