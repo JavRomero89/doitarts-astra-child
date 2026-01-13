@@ -69,6 +69,6 @@ body {
     font-size: 32px;
   }
 }
-body { background: #fff7fb; }
+body { background: #fff7fb !important; }
 a { font-weight: 700; }
 .site-header { box-shadow: 0 6px 20px rgba(0,0,0,.06); }

@@ -107,3 +107,16 @@ add_action('wp_enqueue_scripts', function () {
     );
 }, 20);
 add_action('wp_head', function () { echo '<style>body{background:#fff7fb!important}</style>'; }, 999);
+
+add_action('wp_enqueue_scripts', function () {
+    $css = get_stylesheet_directory() . '/style.css';
+    if (!file_exists($css)) return;
+
+    // Carga el CSS del tema hijo DESPUÉS del CSS de Astra
+    wp_enqueue_style(
+        'doitarts-child-style',
+        get_stylesheet_uri(),
+        ['astra-theme-css'],
+        filemtime($css)
+    );
+}, 999);
