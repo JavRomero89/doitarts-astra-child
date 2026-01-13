@@ -74,5 +74,5 @@ a { font-weight: 700; }
 .site-header { box-shadow: 0 6px 20px rgba(0,0,0,.06); }
 /* PRUEBA VISIBLE: si esto no se ve, el CSS no se está aplicando */
 .site, .ast-separate-container, .site-content { background: #fff7fb !important; }
-.site-header { border: 4px solid #ff5fa2 !important; }
+
 .main-header-menu > .menu-item > a { font-weight: 900 !important; }
