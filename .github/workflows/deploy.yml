@@ -29,5 +29,5 @@ jobs:
           PASS: ${{ secrets.SFTP_PASS }}
           PORT: ${{ secrets.SFTP_PORT }}
           REMOTE: ${{ secrets.SFTP_REMOTE_PATH }}
-        run: lftp -c "set sftp:auto-confirm yes; set sftp:connect-program 'ssh -a -x -p ${PORT}'; open -u ${USER},${PASS} sftp://${HOST}; rm -rf ${REMOTE}assets; mkdir -p ${REMOTE}assets/dist; lcd assets; mirror -R --delete --verbose dist ${REMOTE}assets/dist; quit"
+        run: lftp -c "set sftp:auto-confirm yes; set sftp:connect-program 'ssh -a -x -p ${PORT}'; open -u ${USER},${PASS} sftp://${HOST}; rm -r ${REMOTE}assets; mkdir ${REMOTE}assets; mkdir ${REMOTE}assets/dist; lcd assets; mirror -R --delete --verbose dist ${REMOTE}assets/dist; quit"
 
