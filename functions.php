@@ -106,3 +106,4 @@ add_action('wp_enqueue_scripts', function () {
         filemtime(get_stylesheet_directory() . '/style.css')
     );
 }, 20);
+add_action('wp_head', function () { echo '<style>body{background:#fff7fb!important}</style>'; }, 999);
