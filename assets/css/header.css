@@ -1,0 +1,47 @@
+/* === HEADER CANDY STYLE === */
+
+.site-header {
+  background: #fff;
+  box-shadow: 0 6px 20px rgba(0,0,0,.06);
+}
+
+.main-header-bar {
+  max-width: 1200px;
+  margin: 14px auto;
+  border-radius: 18px;
+  padding: 10px 18px;
+}
+
+/* Logo */
+.site-branding img {
+  max-height: 56px;
+}
+
+/* Menú */
+.main-header-menu > .menu-item > a {
+  font-weight: 700;
+  padding: 10px 16px;
+  border-radius: 14px;
+  transition: background .2s ease;
+}
+
+.main-header-menu > .menu-item > a:hover {
+  background: rgba(0,0,0,.06);
+}
+
+/* Carrito */
+.ast-site-header-cart {
+  background: #ff5fa2;
+  border-radius: 50%;
+  padding: 10px;
+}
+
+.ast-site-header-cart svg {
+  fill: #fff;
+}
+
+.ast-site-header-cart .count {
+  background: #fff;
+  color: #ff5fa2;
+  font-weight: 800;
+}

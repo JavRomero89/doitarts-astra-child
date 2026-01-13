@@ -3,3 +3,69 @@ Theme Name: Do It Arts Child
 Template: astra
 Version: 1.0
 */
+:root {
+  --candy-main: #ff5fa2;
+  --candy-soft: #ffe4ef;
+  --candy-text: #333;
+}
+
+body {
+  color: var(--candy-text);
+}
+
+/* === HERO CANDYLAND === */
+.wp-block-cover.hero-candy{
+  min-height: 85vh;
+  border-radius: 22px;
+  overflow: hidden;
+  box-shadow: 0 20px 40px rgba(0,0,0,.12);
+  margin: 12px auto 28px;
+}
+
+.wp-block-cover.hero-candy .wp-block-cover__inner-container{
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.wp-block-cover.hero-candy h1{
+  font-size: clamp(36px, 5vw, 62px);
+  font-weight: 900;
+  letter-spacing: -1px;
+  margin-bottom: 12px;
+}
+
+.wp-block-cover.hero-candy p{
+  font-size: 18px;
+  max-width: 520px;
+}
+
+.wp-block-cover.hero-candy .wp-block-buttons{
+  margin-top: 18px;
+}
+
+.wp-block-cover.hero-candy .wp-block-button__link{
+  border-radius: 999px !important;
+  padding: 14px 22px !important;
+  font-weight: 800 !important;
+}
+
+.wp-block-cover.hero-candy .wp-block-button:not(.is-style-outline) .wp-block-button__link{
+  background: var(--candy-main) !important;
+  color: #fff !important;
+}
+
+.wp-block-cover.hero-candy .wp-block-button.is-style-outline .wp-block-button__link{
+  border: 2px solid #fff !important;
+  color: #fff !important;
+  background: transparent !important;
+}
+
+@media (max-width: 768px){
+  .wp-block-cover.hero-candy{
+    min-height: 70vh;
+    border-radius: 16px;
+  }
+  .wp-block-cover.hero-candy h1{
+    font-size: 32px;
+  }
+}

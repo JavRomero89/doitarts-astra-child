@@ -1,0 +1,68 @@
+/* === HOME CANDY STYLE === */
+:root{
+  --candy-main:#ff5fa2;
+  --candy-soft:#ffe4ef;
+  --candy-text:#333;
+  --radius:18px;
+}
+
+.page-id-2 .site-content, .home .site-content { padding-top: 18px; } /* si molesta lo quitamos */
+
+/* Hero (bloque portada) */
+.wp-block-cover{
+  border-radius: var(--radius);
+  overflow:hidden;
+  box-shadow: 0 10px 30px rgba(0,0,0,.08);
+}
+.wp-block-cover__inner-container h1,
+.wp-block-cover__inner-container h2{
+  font-weight: 900;
+  letter-spacing: -0.5px;
+}
+.wp-block-button__link{
+  border-radius: 999px !important;
+  font-weight: 800 !important;
+  padding: 12px 18px !important;
+}
+.wp-block-button.is-style-outline .wp-block-button__link{
+  border: 2px solid #fff !important;
+}
+
+/* Tarjetas (categorías) */
+.candy-card{
+  background:#fff;
+  border:1px solid rgba(0,0,0,.06);
+  border-radius: var(--radius);
+  padding: 14px;
+  box-shadow: 0 10px 20px rgba(0,0,0,.06);
+  transition: transform .15s ease;
+}
+.candy-card:hover{ transform: translateY(-2px); }
+.candy-card img{
+  border-radius: 14px;
+  width: 100%;
+  height: 170px;
+  object-fit: cover;
+}
+.candy-card .wp-block-button__link{
+  background: var(--candy-main) !important;
+  color:#fff !important;
+  border:0 !important;
+}
+
+/* Productos WooCommerce (grid) */
+.woocommerce ul.products li.product{
+  border:1px solid rgba(0,0,0,.06);
+  border-radius: var(--radius);
+  padding: 12px;
+  box-shadow: 0 10px 20px rgba(0,0,0,.05);
+}
+.woocommerce ul.products li.product img{
+  border-radius: 14px;
+}
+.woocommerce ul.products li.product .button{
+  background: var(--candy-main);
+  color:#fff;
+  border-radius: 999px;
+  font-weight: 800;
+}
