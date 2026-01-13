@@ -98,3 +98,11 @@ add_action('wp_enqueue_scripts', function () {
         filemtime(get_stylesheet_directory() . '/assets/css/header.css')
     );
 });
+add_action('wp_enqueue_scripts', function () {
+    wp_enqueue_style(
+        'doitarts-child-style',
+        get_stylesheet_uri(),
+        [],
+        filemtime(get_stylesheet_directory() . '/style.css')
+    );
+}, 20);
