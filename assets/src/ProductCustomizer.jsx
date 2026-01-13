@@ -13,22 +13,38 @@ export default function ProductCustomizer() {
     return (base + extraTam + extraTexto) * Math.max(1, cantidad)
   }, [tipo, tam, texto, cantidad])
 
-  const phone = '34XXXXXXXXX' // <-- pon tu número (prefijo país) sin "+"
-  const msg = encodeURIComponent(
-    `Hola! Quiero pedir:\n` +
-    `Producto: ${tipo}\n` +
-    `Tamaño: ${tam}\n` +
-    `Texto: ${texto.trim() || '(sin texto)'}\n` +
-    `Cantidad: ${cantidad}\n` +
-    `Total aprox: ${total}€\n` +
-    `Página: ${window.location.href}`
-  )
+  const addToCart = () => {
+    const form = document.querySelector('form.cart')
+    if (!form) return alert('Abre esto dentro de una página de producto')
 
-  const wa = `https://wa.me/${phone}?text=${msg}`
+    // cantidad
+    const qtyInput = form.querySelector('input.qty')
+    if (qtyInput) qtyInput.value = String(Math.max(1, cantidad))
+
+    // crea/actualiza campos ocultos para WooCommerce (van por POST)
+    const put = (name, value) => {
+      let input = form.querySelector(`input[name="${name}"]`)
+      if (!input) {
+        input = document.createElement('input')
+        input.type = 'hidden'
+        input.name = name
+        form.appendChild(input)
+      }
+      input.value = value
+    }
+
+    put('doitarts_tipo', tipo)
+    put('doitarts_tam', tam)
+    put('doitarts_texto', texto)
+    put('doitarts_total_aprox', String(total))
+
+    const btn = form.querySelector('button.single_add_to_cart_button')
+    if (btn) btn.click()
+  }
 
   return (
     <div style={{ border: '1px solid #ddd', borderRadius: 12, padding: 16 }}>
-      <h2 style={{ marginTop: 0 }}>Personaliza tu pedido</h2>
+      <h3 style={{ marginTop: 0 }}>Personaliza tu pedido</h3>
 
       <div style={{ display: 'grid', gap: 10 }}>
         <label>
@@ -49,7 +65,7 @@ export default function ProductCustomizer() {
         </label>
 
         <label>
-          Texto personalizado
+          Texto
           <input value={texto} onChange={(e) => setTexto(e.target.value)} placeholder="Ej: Sofía 5 años" style={{ width: '100%', padding: 10, borderRadius: 10 }} />
         </label>
 
@@ -63,9 +79,9 @@ export default function ProductCustomizer() {
           <span>{total}€</span>
         </div>
 
-        <a href={wa} target="_blank" rel="noreferrer" style={{ textAlign: 'center', padding: '12px 14px', borderRadius: 12, fontWeight: 800, textDecoration: 'none', border: '1px solid #111' }}>
-          Pedir por WhatsApp
-        </a>
+        <button type="button" onClick={addToCart} style={{ padding: '12px 14px', borderRadius: 12, fontWeight: 800 }}>
+          Añadir al carrito
+        </button>
       </div>
     </div>
   )
