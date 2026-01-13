@@ -96,3 +96,16 @@ a { font-weight: 700; }
   border-radius: 999px !important;
   font-weight: 800 !important;
 }
+.candy-card{
+  text-align:center;
+}
+
+.candy-card img{
+  height: 170px !important;
+  object-fit: contain !important;
+  background: #fff;
+}
+
+.candy-card h2, .candy-card h3{
+  margin: 12px 0 10px;
+}
