@@ -197,3 +197,22 @@ a { font-weight: 700; }
   padding: 12px 14px !important;
   border: 0 !important;
 }
+.wp-block-cover.cta-candy{
+  min-height: 35vh;
+  border-radius: 22px;
+  overflow: hidden;
+  box-shadow: 0 20px 40px rgba(0,0,0,.10);
+  margin: 26px auto 10px;
+}
+.wp-block-cover.cta-candy h2{
+  font-size: clamp(26px, 4vw, 44px);
+  font-weight: 900;
+  letter-spacing: -0.5px;
+}
+.wp-block-cover.cta-candy .wp-block-button__link{
+  border-radius: 999px !important;
+  padding: 14px 22px !important;
+  font-weight: 900 !important;
+  background: #ff5fa2 !important;
+  color:#fff !important;
+}
