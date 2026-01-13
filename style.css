@@ -109,3 +109,46 @@ a { font-weight: 700; }
 .candy-card h2, .candy-card h3{
   margin: 12px 0 10px;
 }
+/* === PRODUCT GRID CANDY STYLE === */
+.woocommerce ul.products{
+  display: grid !important;
+  grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+  gap: 18px !important;
+}
+
+@media (max-width: 980px){
+  .woocommerce ul.products{ grid-template-columns: repeat(2, minmax(0, 1fr)) !important; }
+}
+
+.woocommerce ul.products li.product{
+  background:#fff;
+  border:1px solid rgba(0,0,0,.06);
+  border-radius: 18px;
+  padding: 12px;
+  box-shadow: 0 10px 20px rgba(0,0,0,.06);
+}
+
+.woocommerce ul.products li.product img{
+  border-radius: 14px;
+}
+
+.woocommerce ul.products li.product .woocommerce-loop-product__title{
+  font-weight: 900;
+  font-size: 16px;
+  margin: 10px 0 6px;
+}
+
+.woocommerce ul.products li.product .price{
+  font-weight: 800;
+  margin-bottom: 10px;
+}
+
+.woocommerce ul.products li.product .button{
+  width: 100%;
+  text-align:center;
+  background: #ff5fa2;
+  color:#fff;
+  border-radius: 999px;
+  font-weight: 900;
+  padding: 12px 14px;
+}
