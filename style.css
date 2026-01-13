@@ -152,3 +152,48 @@ a { font-weight: 700; }
   font-weight: 900;
   padding: 12px 14px;
 }
+/* === CANDY PRODUCTS (Woo blocks) === */
+.candy-products .wc-block-grid__products{
+  display: grid !important;
+  grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+  gap: 18px !important;
+}
+
+@media (max-width: 980px){
+  .candy-products .wc-block-grid__products{ grid-template-columns: repeat(2, minmax(0, 1fr)) !important; }
+}
+
+.candy-products .wc-block-grid__product{
+  background:#fff !important;
+  border:1px solid rgba(0,0,0,.06) !important;
+  border-radius: 18px !important;
+  padding: 12px !important;
+  box-shadow: 0 10px 20px rgba(0,0,0,.06) !important;
+}
+
+.candy-products .wc-block-grid__product-image img{
+  border-radius: 14px !important;
+}
+
+.candy-products .wc-block-grid__product-title{
+  font-weight: 900 !important;
+  font-size: 16px !important;
+  margin: 10px 0 6px !important;
+}
+
+.candy-products .wc-block-grid__product-price{
+  font-weight: 800 !important;
+  margin-bottom: 10px !important;
+}
+
+.candy-products .wp-block-button__link,
+.candy-products .wc-block-grid__product-add-to-cart a{
+  width: 100% !important;
+  text-align: center !important;
+  background: #ff5fa2 !important;
+  color: #fff !important;
+  border-radius: 999px !important;
+  font-weight: 900 !important;
+  padding: 12px 14px !important;
+  border: 0 !important;
+}
