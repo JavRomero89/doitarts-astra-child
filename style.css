@@ -76,3 +76,23 @@ a { font-weight: 700; }
 .site, .ast-separate-container, .site-content { background: #fff7fb !important; }
 
 .main-header-menu > .menu-item > a { font-weight: 900 !important; }
+.candy-card{
+  background:#fff;
+  border:1px solid rgba(0,0,0,.06);
+  border-radius: 18px;
+  padding: 14px;
+  box-shadow: 0 10px 20px rgba(0,0,0,.06);
+}
+.candy-card img{
+  border-radius: 14px;
+  width: 100%;
+  height: 170px;
+  object-fit: cover;
+}
+.candy-card .wp-block-button__link{
+  background: #ff5fa2 !important;
+  color:#fff !important;
+  border:0 !important;
+  border-radius: 999px !important;
+  font-weight: 800 !important;
+}
