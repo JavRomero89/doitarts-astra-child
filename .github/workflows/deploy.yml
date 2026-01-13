@@ -29,5 +29,5 @@ jobs:
           PASS: ${{ secrets.SFTP_PASS }}
           PORT: ${{ secrets.SFTP_PORT }}
           REMOTE: ${{ secrets.SFTP_REMOTE_PATH }}
-        run: lftp -c "set sftp:auto-confirm yes; set sftp:connect-program 'ssh -a -x -p ${PORT}'; open -u ${USER},${PASS} sftp://${HOST}; mirror -R --delete --verbose ${GITHUB_WORKSPACE}/assets/dist ${REMOTE}assets/dist; quit"
+        run: lftp -c "set sftp:auto-confirm yes; set sftp:connect-program 'ssh -a -x -p ${PORT}'; open -u ${USER},${PASS} sftp://${HOST}; mirror -R --delete --verbose ${GITHUB_WORKSPACE}/assets/dist ${REMOTE}dist; quit"
 
